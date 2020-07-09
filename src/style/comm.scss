@@ -1,0 +1,45 @@
+/* 通用样式 */
+html {
+  -webkit-overflow-scrolling: touch;
+  /* 100 / 750 * 16 * 2 */
+  font-size: 4.266666666vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff
+}
+a {
+  text-decoration: none;
+  color:#333
+}
+@media (min-width: 640px) {
+  html {
+    max-width:640px;
+    margin:0 auto;
+    font-size:28px;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+div{
+  display: flex;
+  flex-direction: column;
+}
