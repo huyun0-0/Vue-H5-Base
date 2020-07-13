@@ -49,9 +49,17 @@
 'postcss-pxtorem': {
   rootValue: 32,  // 按照根元素 32px进行rem转换
   unitPrecision: 5,
-  propList: ['*'],
+  propList: ['*', '!border'],  // 匹配值进行转换
   minPixelValue: 5,
   selectorBlackList: ['html']
+}
+```
+
+- 忽略转换
+```css
+/* 不转换的另一种方式 -> 使用 Px */
+.ignore{
+  border: 1Px solid #000;
 }
 ```
 
@@ -59,10 +67,12 @@
 ``` css
   /* 100 / 750 得到1px = 0.13333...(vw) */
   /* 再乘以设置的rootValue 32 */
-  font-size: 4.266666666vw;
+  html {
+    font-size: 4.266666666vw;
+  }
 ```
 
-- 这样适配的好处在于即时在pc端，可以通过媒体查询限制html的宽度。
+- 这样适配的好处在于终于不用动态适配根元素的font-size了，并且flexible.js也不在维护，推荐使用viewport适配方案。 而在使用postcss-px-to-viewport这种viewport适配方案的时候，遇到了在pc浏览时无法限制最大宽度，导致页面完全撑开无法浏览。所以，这样适配还有一个好处就是，即使在pc端，可以通过媒体查询限制html的宽度。
 ```css
 @media (min-width: 640px) {
   html {
